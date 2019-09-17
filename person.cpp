@@ -1,77 +1,82 @@
-// person.cpp
+//
+//  person.cpp
+//  Third Party Payroll Program
+//
+//  Created by Mina Moslehpour on 8/8/19.
+//  Copyright © 2019 Mina Moslehpour. All rights reserved.
+//
 
+#include "person.hpp"
+#include <string>
 
-#include <iostream>
 using namespace std;
-#include "person.h"
 
-// defalut contructor
-Person::Person() {
-
+person::person() {
+    _lname = " ";
+    _fname = " ";
+    _company = " ";
+    _empID = 0;
+    _rate = 0.0;
+    _hours = 0.0;
 }
 
-//overloaded contructor
-
-// first name
-void Person::setFirstName (string fName) {
-	firstName = fName;
+person::person(string lname) {
+    _lname = lname;
+    _fname = " ";
+    _company = " ";
+    _empID = 0;
+    _rate = 0.0;
+    _hours = 0.0;
 }
 
-string Person::getFirstName() {
-    return firstName;
+void person::setLname(string lname) {
+    _lname = lname;
 }
 
-// last name
-void Person::setLastName (string lName) {
-	lastName = lName;
+void person::setFname(string fname) {
+    _fname = fname;
+}
+void person::setCompany(string company) {
+    _company = company;
+}
+void person::setEmpID(int empID) {
+    _empID = empID;
 }
 
-string Person::getLastName() {
-    return lastName;
+void person::setRate(float rate) {
+    _rate = rate;
 }
 
-// employee ID
-void Person::setEmployeeId (int id) {
-	employeeId = id;
+void person::setHours(float hours) {
+    _hours = hours;
 }
 
-int Person::getEmployeeId() {
-	return employeeId;
+string person::getLname() {
+    return _lname;
 }
 
-// company name
-void Person::setCompanyName (string coName) {
-	companyName = coName;
+string person::getFname(){
+    return _fname;
+}
+string person::getCompany(){
+    return _company;
+}
+int person::getEmpID(){
+    return _empID;
 }
 
-string Person::getCompanyName () {
-	return companyName;
+float person::getRate() {
+    return _rate;
 }
 
-// pay rate
-void Person::setPayRate (float rate) {
-	payRate = rate;
+float person::getHours() {
+    return _hours;
 }
 
-float Person::getPayRate () {
-	return payRate;
+float person::totalPay() {
+    return _hours * _rate;
 }
 
-// hours worked
-void Person::setHoursWorked (float hours) {
-	hoursWorked = hours;
-}
-
-float Person::getHoursWorked () {
-	return hoursWorked;
-}
-
-// totalpay
-float Person::totalPay() {
-    return hoursWorked * payRate;
-}
-
-// full name
-string Person::fullName() {
-    return firstName + " " + lastName;
+string person::fullName() {
+    return _fname + " " + _lname;
 }
